@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protagonismo no Trabalho</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'orange-custom': '#FF6B35',
+                        'blue-custom': '#1E40AF',
+                        'orange-light': '#FFB499',
+                        'blue-light': '#93C5FD'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #FF6B35 0%, #1E40AF 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .tip-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .tip-card:hover {
+            border-left-color: #FF6B35;
+            background: linear-gradient(90deg, rgba(255,107,53,0.05) 0%, transparent 100%);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-5xl font-bold mb-4">Protagonismo no Trabalho</h1>
+            <p class="text-xl opacity-90 max-w-2xl mx-auto">Desenvolva atitudes que fazem a diferença e impulsionam sua carreira e equipe</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center flex-wrap gap-2 sm:gap-4 py-4">
+                <button onclick="showSection('home')" id="btn-home" class="nav-btn px-3 sm:px-6 py-2 rounded-full font-medium transition-all bg-orange-custom text-white text-sm sm:text-base">
+                    🏠 <span class="hidden sm:inline">Início</span>
+                </button>
+                <button onclick="showSection('gestor')" id="btn-gestor" class="nav-btn px-3 sm:px-6 py-2 rounded-full font-medium transition-all text-gray-600 hover:bg-blue-custom hover:text-white text-sm sm:text-base">
+                    👔 <span class="hidden sm:inline">Gestor</span>
+                </button>
+                <button onclick="showSection('colaborador')" id="btn-colaborador" class="nav-btn px-3 sm:px-6 py-2 rounded-full font-medium transition-all text-gray-600 hover:bg-orange-custom hover:text-white text-sm sm:text-base">
+                    🤝 <span class="hidden sm:inline">Colaborador</span>
+                </button>
+                <button onclick="showSection('resumo')" id="btn-resumo" class="nav-btn px-3 sm:px-6 py-2 rounded-full font-medium transition-all text-gray-600 hover:bg-gray-700 hover:text-white text-sm sm:text-base">
+                    📋 <span class="hidden sm:inline">Resumo</span>
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home-section" class="py-16">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Escolha seu Perfil</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Descubra dicas específicas para desenvolver uma postura protagonista no ambiente de trabalho</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Card Gestor -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg cursor-pointer" onclick="showSection('gestor')">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-blue-custom rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-3xl">👔</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-blue-custom mb-4">Gestor</h3>
+                        <p class="text-gray-600 mb-6">Lidere pelo exemplo e inspire sua equipe a alcançar resultados extraordinários</p>
+                        <div class="bg-blue-light bg-opacity-20 rounded-lg p-4 mb-6">
+                            <p class="text-sm text-blue-custom font-medium">5 Dicas Essenciais</p>
+                        </div>
+                        <button class="bg-blue-custom text-white px-6 py-3 rounded-full font-medium hover:bg-blue-700 transition-all">
+                            Ver Dicas →
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card Colaborador -->
+                <div class="card-hover bg-white rounded-2xl p-8 shadow-lg cursor-pointer" onclick="showSection('colaborador')">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-orange-custom rounded-full flex items-center justify-center mx-auto mb-6">
+                            <span class="text-3xl">🤝</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-orange-custom mb-4">Colaborador</h3>
+                        <p class="text-gray-600 mb-6">Tome iniciativa e seja o profissional que faz a diferença na sua organização</p>
+                        <div class="bg-orange-light bg-opacity-20 rounded-lg p-4 mb-6">
+                            <p class="text-sm text-orange-custom font-medium">5 Dicas Essenciais</p>
+                        </div>
+                        <button class="bg-orange-custom text-white px-6 py-3 rounded-full font-medium hover:bg-orange-600 transition-all">
+                            Ver Dicas →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gestor Section -->
+    <section id="gestor-section" class="py-16 hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 bg-blue-custom rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">👔</span>
+                </div>
+                <h2 class="text-4xl font-bold text-blue-custom mb-4">Dicas para Gestores</h2>
+                <p class="text-lg text-gray-600">Desenvolva uma liderança protagonista e inspire sua equipe</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="tip-card bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-custom rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold">1</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Comunique a Visão Claramente</h3>
+                            <p class="text-gray-600">Articule objetivos e expectativas de forma transparente, garantindo que todos compreendam o propósito e direção da equipe.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-card bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-custom rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold">2</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Delegue com Confiança</h3>
+                            <p class="text-gray-600">Empodere sua equipe delegando responsabilidades importantes e oferecendo autonomia para tomada de decisões.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-card bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-custom rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold">3</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Ofereça Feedback Construtivo</h3>
+                            <p class="text-gray-600">Forneça retornos regulares e específicos, focando no desenvolvimento e crescimento profissional de cada colaborador.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-card bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-custom rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold">4</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Invista no Desenvolvimento da Equipe</h3>
+                            <p class="text-gray-600">Promova treinamentos, mentoria e oportunidades de crescimento, demonstrando interesse genuíno no futuro profissional dos colaboradores.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-card bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-blue-custom rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold">5</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Seja um Exemplo de Proatividade</h3>
+                            <p class="text-gray-600">Demonstre iniciativa, assuma responsabilidades e mantenha uma postura positiva diante dos desafios, inspirando sua equipe pelo exemplo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button onclick="showSection('colaborador')" class="bg-orange-custom text-white px-8 py-3 rounded-full font-medium hover:bg-orange-600 transition-all">
+                    Ver Dicas para Colaboradores →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colaborador Section -->
+    <section id="colaborador-section" class="py-16 hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 bg-orange-custom rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">🤝</span>
+                </div>
+                <h2 class="text-4xl font-bold text-orange-custom mb-4">Dicas para Colaboradores</h2>
+                <p class="text-lg text-gray-600">Desenvolva uma postura protagonista e destaque-se profissionalmente</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="tip-card bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-orange-custom rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold">1</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Antecipe-se aos Problemas</h3>
+                            <p class="text-gray-600">Identifique possíveis obstáculos antes que se tornem críticos e apresente soluções práticas para sua equipe.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-card bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-orange-custom rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold">2</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Busque Conhecimento Continuamente</h3>
+                            <p class="text-gray-600">Mantenha-se atualizado com tendências do mercado, novas tecnologias e habilidades relevantes para sua área de atuação.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-card bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-orange-custom rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold">3</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Comunique-se de Forma Assertiva</h3>
+                            <p class="text-gray-600">Expresse suas ideias com clareza, ouça ativamente e contribua de forma construtiva nas discussões da equipe.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-card bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-orange-custom rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold">4</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Assuma Responsabilidades Extras</h3>
+                            <p class="text-gray-600">Voluntarie-se para projetos desafiadores e demonstre disposição para ir além das suas responsabilidades básicas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-card bg-white rounded-xl p-6 shadow-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-orange-custom rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold">5</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Construa Relacionamentos Sólidos</h3>
+                            <p class="text-gray-600">Desenvolva uma rede de contatos interna e externa, colabore ativamente e seja uma pessoa confiável e respeitada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button onclick="showSection('gestor')" class="bg-blue-custom text-white px-8 py-3 rounded-full font-medium hover:bg-blue-700 transition-all">
+                    Ver Dicas para Gestores →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resumo Section -->
+    <section id="resumo-section" class="py-16 hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span class="text-2xl">📋</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">O que é Protagonismo?</h2>
+                <p class="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto">Protagonismo no trabalho significa tomar a iniciativa, ser proativo e assumir responsabilidade pelos resultados. É ser aquela pessoa que não espera as coisas acontecerem, mas faz elas acontecerem!</p>
+            </div>
+
+            <!-- Resumo das Dicas -->
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Resumo Gestores -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-t-4 border-blue-custom">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-blue-custom rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">👔</span>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-blue-custom mb-2">Para Gestores</h3>
+                            <p class="text-sm sm:text-base text-gray-600">Como liderar com protagonismo</p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                                <div class="w-6 h-6 bg-blue-custom rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white text-xs font-bold">✓</span>
+                                </div>
+                                <span class="text-sm sm:text-base text-gray-700">Fale claro sobre os objetivos</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                                <div class="w-6 h-6 bg-blue-custom rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white text-xs font-bold">✓</span>
+                                </div>
+                                <span class="text-sm sm:text-base text-gray-700">Confie na sua equipe</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                                <div class="w-6 h-6 bg-blue-custom rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white text-xs font-bold">✓</span>
+                                </div>
+                                <span class="text-sm sm:text-base text-gray-700">Dê retornos que ajudem a crescer</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                                <div class="w-6 h-6 bg-blue-custom rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white text-xs font-bold">✓</span>
+                                </div>
+                                <span class="text-sm sm:text-base text-gray-700">Invista no desenvolvimento</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 bg-blue-50 rounded-lg">
+                                <div class="w-6 h-6 bg-blue-custom rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white text-xs font-bold">✓</span>
+                                </div>
+                                <span class="text-sm sm:text-base text-gray-700">Seja o exemplo que quer ver</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resumo Colaboradores -->
+                    <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border-t-4 border-orange-custom">
+                        <div class="text-center mb-6">
+                            <div class="w-16 h-16 bg-orange-custom rounded-full flex items-center justify-center mx-auto mb-4">
+                                <span class="text-2xl">🤝</span>
+                            </div>
+                            <h3 class="text-xl sm:text-2xl font-bold text-orange-custom mb-2">Para Colaboradores</h3>
+                            <p class="text-sm sm:text-base text-gray-600">Como ser protagonista no dia a dia</p>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3 p-3 bg-orange-50 rounded-lg">
+                                <div class="w-6 h-6 bg-orange-custom rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white text-xs font-bold">✓</span>
+                                </div>
+                                <span class="text-sm sm:text-base text-gray-700">Antecipe problemas e soluções</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 bg-orange-50 rounded-lg">
+                                <div class="w-6 h-6 bg-orange-custom rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white text-xs font-bold">✓</span>
+                                </div>
+                                <span class="text-sm sm:text-base text-gray-700">Estude e se atualize sempre</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 bg-orange-50 rounded-lg">
+                                <div class="w-6 h-6 bg-orange-custom rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white text-xs font-bold">✓</span>
+                                </div>
+                                <span class="text-sm sm:text-base text-gray-700">Fale suas ideias com clareza</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 bg-orange-50 rounded-lg">
+                                <div class="w-6 h-6 bg-orange-custom rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white text-xs font-bold">✓</span>
+                                </div>
+                                <span class="text-sm sm:text-base text-gray-700">Aceite desafios extras</span>
+                            </div>
+                            <div class="flex items-center space-x-3 p-3 bg-orange-50 rounded-lg">
+                                <div class="w-6 h-6 bg-orange-custom rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-white text-xs font-bold">✓</span>
+                                </div>
+                                <span class="text-sm sm:text-base text-gray-700">Construa bons relacionamentos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mensagem Final -->
+                <div class="text-center mt-12 bg-gradient-to-r from-orange-custom to-blue-custom rounded-2xl p-6 sm:p-8 text-white">
+                    <h3 class="text-xl sm:text-2xl font-bold mb-4">🚀 Comece Hoje!</h3>
+                    <p class="text-base sm:text-lg mb-6">Protagonismo não é um talento nato, é uma escolha diária. Escolha uma dica e comece a praticar hoje mesmo!</p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="showSection('gestor')" class="bg-white text-blue-custom px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-all">
+                            👔 Dicas para Gestores
+                        </button>
+                        <button onclick="showSection('colaborador')" class="bg-white text-orange-custom px-6 py-3 rounded-full font-medium hover:bg-gray-100 transition-all">
+                            🤝 Dicas para Colaboradores
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-2xl font-bold mb-4">Protagonismo no Trabalho</h3>
+            <p class="text-gray-400 mb-6">Desenvolva atitudes que transformam carreiras e organizações</p>
+            <div class="flex justify-center space-x-6">
+                <button onclick="showSection('home')" class="text-orange-custom hover:text-orange-light transition-all">Início</button>
+                <button onclick="showSection('gestor')" class="text-blue-custom hover:text-blue-light transition-all">Gestores</button>
+                <button onclick="showSection('colaborador')" class="text-orange-custom hover:text-orange-light transition-all">Colaboradores</button>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        function showSection(section) {
+            // Hide all sections
+            document.getElementById('home-section').classList.add('hidden');
+            document.getElementById('gestor-section').classList.add('hidden');
+            document.getElementById('colaborador-section').classList.add('hidden');
+            document.getElementById('resumo-section').classList.add('hidden');
+            
+            // Reset all nav buttons
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => {
+                btn.classList.remove('bg-orange-custom', 'bg-blue-custom', 'bg-gray-700', 'text-white');
+                btn.classList.add('text-gray-600');
+            });
+            
+            // Show selected section and update nav
+            if (section === 'home') {
+                document.getElementById('home-section').classList.remove('hidden');
+                document.getElementById('btn-home').classList.add('bg-orange-custom', 'text-white');
+                document.getElementById('btn-home').classList.remove('text-gray-600');
+            } else if (section === 'gestor') {
+                document.getElementById('gestor-section').classList.remove('hidden');
+                document.getElementById('btn-gestor').classList.add('bg-blue-custom', 'text-white');
+                document.getElementById('btn-gestor').classList.remove('text-gray-600');
+                
+                // Add fade-in animation to tips
+                setTimeout(() => {
+                    const tips = document.querySelectorAll('#gestor-section .tip-card');
+                    tips.forEach((tip, index) => {
+                        setTimeout(() => {
+                            tip.classList.add('fade-in');
+                        }, index * 100);
+                    });
+                }, 100);
+            } else if (section === 'colaborador') {
+                document.getElementById('colaborador-section').classList.remove('hidden');
+                document.getElementById('btn-colaborador').classList.add('bg-orange-custom', 'text-white');
+                document.getElementById('btn-colaborador').classList.remove('text-gray-600');
+                
+                // Add fade-in animation to tips
+                setTimeout(() => {
+                    const tips = document.querySelectorAll('#colaborador-section .tip-card');
+                    tips.forEach((tip, index) => {
+                        setTimeout(() => {
+                            tip.classList.add('fade-in');
+                        }, index * 100);
+                    });
+                }, 100);
+            } else if (section === 'resumo') {
+                document.getElementById('resumo-section').classList.remove('hidden');
+                document.getElementById('btn-resumo').classList.add('bg-gray-700', 'text-white');
+                document.getElementById('btn-resumo').classList.remove('text-gray-600');
+            }
+        }
+        
+
+        
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ecc80f816bf626',t:'MTc1NTEzNjAxOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
